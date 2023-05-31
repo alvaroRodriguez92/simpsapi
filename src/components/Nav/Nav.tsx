@@ -36,7 +36,7 @@ function ResponsiveAppBar() {
 
   const [personaje, setPersonaje] = useState<string>("");
   const debouncedSearch = useDebounce(personaje, 400);
-  const {searchFetch,paginado} = useCharacterContext()
+  const {searchFetch, resultFetch} = useCharacterContext()
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -149,7 +149,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-              onClick={paginado(0)}
+              onClick={resultFetch}
                 key={page}
                 sx={{ fontSize:"24px", fontFamily:"Homer Simpson Revised", my: 2,mx:2, color: 'white', display: 'block' }}
               >
